@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\UserRequest;
 use App\Models\Users;
 use Illuminate\Http\Request;
 
@@ -63,13 +64,14 @@ class UsersController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Http\Requests\UserRequest  $request
      * @param  \App\Models\Users  $user
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Users $user)
+    public function update(UserRequest $request, Users $user)
     {
-        //
+        $user->update($request->all());
+        return redirect()->route('users.show',$user->id)->with('success','个人资料更新成功');
     }
 
     /**

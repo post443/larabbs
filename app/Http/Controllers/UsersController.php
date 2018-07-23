@@ -21,7 +21,10 @@ class UsersController extends Controller
      */
     public function index()
     {
-        //
+        echo 'www.bfgcxy.cn';
+        dump(dns_get_record('www.bfgcxy.cn'));
+        echo '<br>baidu:';
+        dump(dns_get_record ('www.baidu.com'));
     }
 
     /**

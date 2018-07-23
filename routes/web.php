@@ -12,6 +12,7 @@
 */
 
 Route::get('/', 'PagesController@root')->name('root');
+Route::get('test','UsersController@index');
 
 // Authentication Routes...
 Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');

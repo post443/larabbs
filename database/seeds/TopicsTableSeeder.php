@@ -13,7 +13,7 @@ class TopicsTableSeeder extends Seeder
         $category_ids = Category::all()->pluck('id')->toArray();
         $faker = app(Faker\Generator::class);
         $topics = factory(Topic::class)
-            ->times(50)
+            ->times(100)
             ->make()
             ->each(function ($topic, $index) use($user_ids,$category_ids,$faker)
             {

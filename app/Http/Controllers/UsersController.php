@@ -14,6 +14,20 @@ class UsersController extends Controller
         $this->middleware('auth',['except'=>['show']]);
     }
 
+
+
+
+
+    public function xArray($array)
+    {
+        for ($i = 0;$i<=count($array)-1;$i+=2){
+            if (isset($array[$i+1])) $d = [$array[$i],$array[$i+1]];
+            else $d = [$array[$i]];
+            yield $d;
+        }
+    }
+
+
     /**
      * Display a listing of the resource.
      *
@@ -21,10 +35,10 @@ class UsersController extends Controller
      */
     public function index()
     {
-        echo 'www.bfgcxy.cn';
-        dump(dns_get_record('www.bfgcxy.cn'));
-        echo '<br>baidu:';
-        dump(dns_get_record ('www.baidu.com'));
+        $users = User::all()->toArray();
+        foreach ($this->xArray($users) as $k=>$v){
+            dump($v);
+        }
     }
 
     /**

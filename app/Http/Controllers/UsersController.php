@@ -6,6 +6,7 @@ use App\Handlers\ImageUploadHandler;
 use App\Http\Requests\UserRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Imagick;
 
 class UsersController extends Controller
 {
@@ -35,10 +36,6 @@ class UsersController extends Controller
      */
     public function index()
     {
-        $users = User::all()->toArray();
-        foreach ($this->xArray($users) as $k=>$v){
-            dump($v);
-        }
     }
 
     /**

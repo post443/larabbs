@@ -9,11 +9,12 @@
     <title>@yield('title','LaraBBS') - Laravel</title>
     <!-- Styles -->
     <link rel="stylesheet" href="{{asset('css/app.css')}}">
+    @yield('styles')
 </head>
 <body>
     <div id="app" class="{{route_class()}}-page">
         @include('layouts._header')
-        <div class="container">
+            <div class="container">
             @include('layouts._message')
             @yield('content')
         </div>
@@ -21,5 +22,6 @@
     </div>
     <!-- Scripts -->
     <script src="{{asset('js/app.js')}}"></script>
+    @yield('scripts')
 </body>
 </html>

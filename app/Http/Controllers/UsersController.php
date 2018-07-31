@@ -36,7 +36,7 @@ class UsersController extends Controller
      */
     public function index()
     {
-
+        dump(date('Y-m-d H:i:s',strtotime('mar last sun')));
     }
 
     /**
@@ -114,5 +114,21 @@ class UsersController extends Controller
     public function destroy(User $user)
     {
         //
+    }
+
+    public function xxx($var){
+        $temp = [];
+        foreach ($var as $key => $val){
+            foreach ($val as $k => $v){
+                $temp[$k] = [$key=>$v];
+            }
+            break;
+        }
+        foreach ($var as $key => $val){
+            foreach ($val as $k => $v){
+                $temp[$k]=array_merge($temp[$k],[$key=>$v]);
+            }
+        }
+        return $temp;
     }
 }
